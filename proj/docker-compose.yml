@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  web:
+    container_name: web
+    build: ./web
+    env_file: .env
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/web_django
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+      - redis
+  db:
+    container_name: db
+    image: mysql:5.7
+    ports:
+      - '3306:3306'
+    env_file: .env
+    restart: always
+    volumes:
+      - ./db_django:/var/lib/mysql
+  celery:
+    container_name: celery
+    build: ./web
+    env_file: .env
+    command: celery -A web_django worker -l INFO
+    volumes:
+        - .:/web_django
+    depends_on:
+        - web
+        - redis
+  redis:
+    image: "redis:alpine"
+    container_name: redis

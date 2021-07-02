@@ -1,0 +1,3 @@
+--create database db_django;
+grant all on db_django.* to 'web_django'@'%';
+flush privileges;
