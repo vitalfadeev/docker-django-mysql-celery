@@ -28,8 +28,8 @@ flush privileges;
 ```
 0-init.sh         - init Django project ( already inited )
 1-build.sh        - build container
-2-migrate-db.sh   - migrate Django DB
-3-up.sh           - run container (up)
+2-up.sh           - run container (up)
+3-migrate-db.sh   - migrate Django DB
 4-mysql-shell.sh  - MySqql interactive root shell
 5-django-shell.sh - Django shell
 7-down.sh         - shutdown container
