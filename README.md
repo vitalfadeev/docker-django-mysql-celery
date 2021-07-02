@@ -42,3 +42,5 @@ flush privileges;
 >>> add.delay(2,2)
 <AsyncResult: 581225ee-39af-4771-ba01-e92735d77885>
 ```
+
+![Alt text](demo/screen.png)
