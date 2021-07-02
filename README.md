@@ -34,3 +34,11 @@ flush privileges;
 5-django-shell.sh - Django shell
 7-down.sh         - shutdown container
 ```
+
+## Test
+5-django-shell.sh
+```
+>>> from app1.tasks import add
+>>> add.delay(2,2)
+<AsyncResult: 581225ee-39af-4771-ba01-e92735d77885>
+```
